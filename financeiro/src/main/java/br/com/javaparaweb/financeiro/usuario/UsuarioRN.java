@@ -1,6 +1,8 @@
 package br.com.javaparaweb.financeiro.usuario;
 
 import java.util.List;
+
+import br.com.javaparaweb.financeiro.util.DAOFactory;
 /**
  * Essa classe trabalha auxiliando para a interface(telas)
  * @author Felipe

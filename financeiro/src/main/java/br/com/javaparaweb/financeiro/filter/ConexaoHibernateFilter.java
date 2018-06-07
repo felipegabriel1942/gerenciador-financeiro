@@ -1,6 +1,6 @@
 package br.com.javaparaweb.financeiro.filter;
 
-import java.io.IOException;
+
 
 import javax.servlet.*;
 import javax.servlet.annotation.WebFilter;
@@ -9,7 +9,7 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 
-import br.com.javaparaweb.financeiro.usuario.HibernateUtil;
+import br.com.javaparaweb.financeiro.util.HibernateUtil;
 /**
  * Esta classe serve para implementar a a técnica do Open Session in View, que consiste em
  * que a sessão do Hibernate sera aberta no inicio do processamento do servidor e finalizada
@@ -18,22 +18,24 @@ import br.com.javaparaweb.financeiro.usuario.HibernateUtil;
  *
  */
 /*A anotação webfilter serve para configurar qual o tipo d requisição web esta classe Filter vai interceptar*/
-@WebFilter(urlPatterns = {"*.jsf}"})
+@WebFilter(urlPatterns = {"*.jsf"})
 public class ConexaoHibernateFilter implements Filter{
 	
 	private SessionFactory sf;
 	
+	//Metodo executado quando a aplicação é ativada
+		@Override
+		public void init(FilterConfig config) throws ServletException {
+			this.sf = HibernateUtil.getSessionFactory();
+			
+		}
 	//Executado quando o aplicativo web é desativado ou o servidor cai
-	@Override
-	public void destroy() {
-		// TODO Auto-generated method stub
-		
-	}
+	
 	
 	//Metodo que irá interceptar a requisição web
 	@Override
 	public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse, FilterChain chain)
-			throws IOException, ServletException {
+			throws ServletException {
 		Session currentSession = this.sf.getCurrentSession();
 		
 		Transaction transaction = null;
@@ -65,10 +67,9 @@ public class ConexaoHibernateFilter implements Filter{
 	}
 	
 	
-	//Metodo executado quando a aplicação é ativada
 	@Override
-	public void init(FilterConfig config) throws ServletException {
-		this.sf = HibernateUtil.getSessionFactory();
+	public void destroy() {
+	
 		
 	}
 	

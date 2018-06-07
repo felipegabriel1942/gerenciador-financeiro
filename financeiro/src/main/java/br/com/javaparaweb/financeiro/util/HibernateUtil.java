@@ -1,4 +1,4 @@
-package br.com.javaparaweb.financeiro.usuario;
+package br.com.javaparaweb.financeiro.util;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.boot.registry.StandardServiceRegistry;
