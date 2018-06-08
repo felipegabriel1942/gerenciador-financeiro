@@ -6,10 +6,7 @@
 <hibernate-configuration>
 	<session-factory>
 		<property name="dialect">org.hibernate.dialect.MySQL5InnoDBDialect</property>
-		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
-		<property name="connection.url">jdbc:mysql://localhost:3306/financeiro</property>
-		<property name="connection.username">root</property>
-		<property name="connection.password">amor1805</property>
+		<property name="connection.datasource">java:/comp/env/jdbc/FinanceiroDB</property>
 		
 		<!-- current_session_context_class com o valor thread serve para indicar que a cada nova thread a sessão
 		devera ser diferente -->
