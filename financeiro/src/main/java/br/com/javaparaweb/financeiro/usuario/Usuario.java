@@ -101,6 +101,7 @@ public class Usuario implements Serializable{
 	public void setPermissao(Set<String> permissao) {
 		this.permissao = permissao;
 	}
+	
 	@Override
 	public int hashCode() {
 		final int prime = 31;
