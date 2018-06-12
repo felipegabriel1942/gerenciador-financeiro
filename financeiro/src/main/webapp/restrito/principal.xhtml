@@ -14,6 +14,17 @@
 	Usuário logado #{request.remoteUser}
 	<br/>
 	<h:form>
+		<h:commandButton value="Conta" action="/restrito/conta"/>
+		
+		<h:selectOneMenu value="#{contextoBean.contaAtiva.conta}" 
+			valueChangeListener="#{contextoBean.changeContaAtiva}"
+			rendered="#{not empty contextoBean and not empty contextoBean.contaAtiva}"
+			onchange="submit()">
+			<f:selectItems value="#{contaBean.lista}"
+				var="conta" itemValue="#{conta.conta}" itemLabel="#{conta.descricao}"/>
+		</h:selectOneMenu>
+		
+	
 		<h:panelGroup rendered="#{request.isUserInRole('ROLE_ADMINISTRADOR')}">
 			<h:commandLink action="/admin/principal" title="Administrativo">
 				<h:graphicImage library="imagens" name="administrativo16.png"/>
