@@ -10,7 +10,7 @@
 			<table width="100%">
 				<tr>
 					<td><h:commandButton value="Conta" action="/restrito/conta" />
-
+						
 						<h:selectOneMenu value="#{contextoBean.contaAtiva.conta}"
 							valueChangeListener="#{contextoBean.changeContaAtiva}"
 							rendered="#{not empty contextoBean and not empty contextoBean.contaAtiva}"
