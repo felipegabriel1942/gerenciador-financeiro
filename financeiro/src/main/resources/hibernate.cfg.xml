@@ -18,5 +18,6 @@
 		<!-- Informa ao hibernate que a classe entidade abaixo existe e deve ser considerada -->
 		<mapping class="br.com.javaparaweb.financeiro.usuario.Usuario"/>
 		<mapping class="br.com.javaparaweb.financeiro.conta.Conta"/>
+		<mapping class="br.com.javaparaweb.financeiro.categoria.Categoria"/>
 	</session-factory>
 </hibernate-configuration>
