@@ -19,12 +19,12 @@ public class UsuarioRN {
 		this.usuarioDAO = DAOFactory.criarUsuarioDAO();
 	}
 
-	// Carrega uma unica instância com base emm seu código
+	// Carrega uma unica instância com base em seu código
 	public Usuario carregar(Integer codigo) {
 		return this.usuarioDAO.carregar(codigo);
 	}
 
-	// Carrega as informações do usuaário logo após o login
+	// Carrega as informações do usuário logo após o login
 	public Usuario buscarPorLogin(String login) {
 		return this.usuarioDAO.buscarPorLogin(login);
 	}
